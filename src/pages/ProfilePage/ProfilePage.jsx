@@ -26,7 +26,7 @@ export default function ProfilePage({ loggedUser }) {
             const responseFromServer = await fetch(`/api/users/${username}`, {
                 method: 'GET',
                 headers: {
-                    Authorization: "Bearer" + tokenService.getToken(),
+                    Authorization: "Bearer " + tokenService.getToken(),
                 },
             })
 

@@ -5,9 +5,10 @@ import "./App.css";
 import LoginPage from "./pages/LoginPage/LoginPage";
 import SignupPage from "./pages/SignupPage/SignupPage"
 import ProfilePage from "./pages/ProfilePage/ProfilePage";
+import AddPokePage from "./pages/AddPokePage/AddPokePage";
 
 import userService from "./utils/userService";
-import AddPokePage from "./pages/AddPokePage/AddPokePage";
+
 
 function App() {
 

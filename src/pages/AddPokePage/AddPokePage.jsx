@@ -14,13 +14,13 @@ export default function AddPokePage({ loggedUser }) {
                 method: "POST",
                 body: formData,
                 headers: {
-                    Authorization: "Bearer" + tokenService.getToken(),
+                    Authorization: "Bearer " + tokenService.getToken(),
                 },
             })
 
             const data = await response.json();
 
-            console.log(date, "<--- from server")
+            console.log(data, "<--- from server")
             setPokes([data.poke, ...pokes]);
         } catch (err) {
             console.log(err);
