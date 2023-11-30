@@ -6,6 +6,7 @@ import LoginPage from "./pages/LoginPage/LoginPage";
 import SignupPage from "./pages/SignupPage/SignupPage"
 import ProfilePage from "./pages/ProfilePage/ProfilePage";
 import AddPokePage from "./pages/AddPokePage/AddPokePage";
+import MainPage from "./pages/MainPage/MainPage"
 
 import userService from "./utils/userService";
 
@@ -20,7 +21,7 @@ function App() {
 
   return (
     <Routes>
-      <Route path="/" element={<h1>Home Pageeeeeeeeeee</h1>} />
+      <Route path="/" element={<MainPage loggedUser={user} />} />
       <Route path="/login" element={<LoginPage handleSignUpAndLogin={handleSignUpAndLogin} />} />
       <Route path="/signup" element={<SignupPage handleSignUpAndLogin={handleSignUpAndLogin} />} />
       <Route path="/:username" element={<ProfilePage loggedUser={user} />} />

@@ -7,7 +7,8 @@ const s3 = new S3();
 const { v4: uuidv4 } = require('uuid')
 
 module.exports = {
-    create
+    create,
+    index
 }
 
 function create(req, res) {
@@ -42,4 +43,13 @@ function create(req, res) {
             res.json({ error: 'Problem with creatinga pokemon, try again' })
         }
     })
+}
+
+async function index(req, res){
+    try{
+        const pokes = await Poke.find({}).populate("user").exec();
+        res.status(200).json({ pokes });
+    } catch (err){
+        res.json({error: err})
+    }
 }

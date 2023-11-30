@@ -3,7 +3,7 @@ import { Card } from 'semantic-ui-react';
 
 export default function PokeFeed({pokes, isProfile, loggedUser }){
     const pokeCards = pokes.map((poke) =>{
-        return <PokeCard pokes={pokes} isProfile={isProfile} loggedUser={loggedUser} />
+        return <PokeCard poke={poke} key={poke._id}isProfile={isProfile} loggedUser={loggedUser} />
     })
 
     return (
