@@ -7,5 +7,6 @@ const upload = multer();
 
 router.post('/', upload.single('photo'), pokeCtrl.create)
 router.get('/', pokeCtrl.index)
+router.delete('/:id', pokeCtrl.deletePoke)
 
 module.exports = router;

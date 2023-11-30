@@ -10,7 +10,7 @@ import { Grid } from 'semantic-ui-react'
 import tokenService from "../../utils/tokenService";
 
 
-export default function ProfilePage({ loggedUser }) {
+export default function ProfilePage({ loggedUser, logout }) {
     const [profileUser, setProfileUser] = useState({});
     const [pokes, setPokes] = useState([]);
 
@@ -55,7 +55,7 @@ export default function ProfilePage({ loggedUser }) {
     if (ErrorMessage) {
         return (
             <>
-                <PageHeader />
+                <PageHeader logout={logout}/>
                 <h1>{ErrorMessage}</h1>
             </>
         )
@@ -64,7 +64,7 @@ export default function ProfilePage({ loggedUser }) {
     if (!pokes.length && loading) {
         return (
             <>
-                <PageHeader />
+                <PageHeader logout={logout}/>
                 <h1>Loading...</h1>
             </>
         )

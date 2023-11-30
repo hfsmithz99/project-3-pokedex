@@ -8,6 +8,7 @@ import {
     Image,
     Segment
 } from "semantic-ui-react"
+import PageHeader from "../../components/Header/Header"
 
 import { useNavigate } from "react-router-dom";
 
@@ -15,7 +16,7 @@ import ErrorMessage from '../../components/ErrorMessage/ErrorMessage'
 
 import userService from "../../utils/userService";
 
-export default function SignUpPage({ handleSignUpAndLogin }) {
+export default function SignUpPage({ handleSignUpAndLogin, logout }) {
     const [state, setState] = useState({
         username: '',
         email: '',
@@ -65,10 +66,9 @@ export default function SignUpPage({ handleSignUpAndLogin }) {
     }
 
     return (
+        <>
+        <PageHeader logout={logout}/>
         <Grid textAlign="center" style={{ height: "100vh" }} verticalAlign="middle">
-            <Header as="h2" color="purple" textAlign="center">
-                SignUp
-            </Header>
             <Form autoComplete="off" onSubmit={handleSubmit}>
                 <Segment stacked>
                     <Form.Input
@@ -116,5 +116,6 @@ export default function SignUpPage({ handleSignUpAndLogin }) {
                 </Segment>
             </Form>
         </Grid>
+    </>
     )
 }

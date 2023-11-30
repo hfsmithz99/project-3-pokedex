@@ -19,13 +19,18 @@ function App() {
     setUser(userService.getUser());
   }
 
+  function logout(){
+    setUser.logout();
+    setUser(null);
+  }
+
   return (
     <Routes>
-      <Route path="/" element={<MainPage loggedUser={user} />} />
-      <Route path="/login" element={<LoginPage handleSignUpAndLogin={handleSignUpAndLogin} />} />
-      <Route path="/signup" element={<SignupPage handleSignUpAndLogin={handleSignUpAndLogin} />} />
-      <Route path="/:username" element={<ProfilePage loggedUser={user} />} />
-      <Route path="/add" element={<AddPokePage loggedUser={user} />} />
+      <Route path="/" element={<MainPage loggedUser={user} logout={logout} />} />
+      <Route path="/login" element={<LoginPage handleSignUpAndLogin={handleSignUpAndLogin} logout={logout}/>} />
+      <Route path="/signup" element={<SignupPage handleSignUpAndLogin={handleSignUpAndLogin} logout={logout} />} />
+      <Route path="/:username" element={<ProfilePage loggedUser={user} logout={logout} />} />
+      <Route path="/add" element={<AddPokePage loggedUser={user} logout={logout} />} />
     </Routes>
   );
 }

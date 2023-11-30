@@ -1,10 +1,11 @@
 import { useState, useEffect } from 'react';
 
 import AddPokeForm from '../../components/AddPokeForm/AddPokeForm';
+import PageHeader from "../../components/Header/Header"
 
 import tokenService from '../../utils/tokenService';
 
-export default function AddPokePage({ loggedUser }) {
+export default function AddPokePage({ loggedUser, logout }) {
 
     const [pokes, setPokes] = useState([]);
 
@@ -27,6 +28,10 @@ export default function AddPokePage({ loggedUser }) {
         }
     }
     return(
-        <AddPokeForm addPoke={addPoke} />
+        <>
+        <PageHeader logout={logout}/>
+                <AddPokeForm addPoke={addPoke} />
+        </>
+
     )
 }

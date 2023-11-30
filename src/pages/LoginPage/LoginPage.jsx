@@ -8,15 +8,14 @@ import {
   Form,
   Grid,
   Header,
-  Image,
   Message,
   Segment
 } from 'semantic-ui-react';
-
+import PageHeader from "../../components/Header/Header"
 import userService from '../../utils/userService';
 import tokenService from '../../utils/tokenService';
 
-export default function LoginPage({ handleSignUpAndLogin }) {
+export default function LoginPage({ handleSignUpAndLogin, logout }) {
 
   const [state, setState] = useState({
     email: '',
@@ -46,41 +45,45 @@ export default function LoginPage({ handleSignUpAndLogin }) {
 
   const [error, setError] = useState('');
   return (
-    <Grid textAlign='center' style={{ height: '100vh' }} verticalAlign="middle">
-      <Grid.Column style={{ maxWidth: 450 }}>
-        <Header as="h2" color="red" textAlign='center'>
-          Login
-        </Header>
-        <Form autoComplete="off" onSubmit={handleSubmit}>
-          <Segment stacked>
-            <Form.Input
-              className='inputform'
-              type="email"
-              name="email"
-              placeholder="email"
-              value={state.email}
-              onChange={handleChange}
-              required
-            />
-            <Form.Input
-              className='inputform'
-              name="password"
-              type="password"
-              placeholder="password"
-              value={state.password}
-              onChange={handleChange}
-              required
-            />
-            <Button type="submit" className='btn'>
-              Login
-            </Button>
-          </Segment>
-          <Message>
-            New to Pokedex?<Link to='/signup'> Sign Up </Link>
-          </Message>
-        </Form>
-      </Grid.Column>
-    </Grid >
+
+    <>
+      <PageHeader logout={logout}/>
+      <Grid textAlign='center' style={{ height: '100vh' }} verticalAlign="middle">
+        <Grid.Column style={{ maxWidth: 450 }}>
+          <Header as="h2" color="red" textAlign='center'>
+            Login
+          </Header>
+          <Form autoComplete="off" onSubmit={handleSubmit}>
+            <Segment stacked>
+              <Form.Input
+                className='inputform'
+                type="email"
+                name="email"
+                placeholder="email"
+                value={state.email}
+                onChange={handleChange}
+                required
+              />
+              <Form.Input
+                className='inputform'
+                name="password"
+                type="password"
+                placeholder="password"
+                value={state.password}
+                onChange={handleChange}
+                required
+              />
+              <Button type="submit" className='btn'>
+                Login
+              </Button>
+            </Segment>
+            <Message>
+              New to Pokedex?<Link to='/signup'> Sign Up </Link>
+            </Message>
+          </Form>
+        </Grid.Column>
+      </Grid >
+    </>
   );
 }
 
