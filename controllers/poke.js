@@ -46,21 +46,21 @@ function create(req, res) {
     })
 }
 
-async function index(req, res){
-    try{
+async function index(req, res) {
+    try {
         const pokes = await Poke.find({}).populate("user").exec();
         res.status(200).json({ pokes });
-    } catch (err){
-        res.json({error: err})
+    } catch (err) {
+        res.json({ error: err })
     }
 }
 
-async function deletePoke(req, res){
-    try{
+async function deletePoke(req, res) {
+    try {
         const onePoke = await Poke.findByIdAndDelete(req.params.id);
         await Poke.save();
-    } catch(err){
-        res.status(400).json({err})
+    } catch (err) {
+        res.status(400).json({ err })
     }
 
 }

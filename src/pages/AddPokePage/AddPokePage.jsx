@@ -27,10 +27,10 @@ export default function AddPokePage({ loggedUser, logout }) {
             console.log(err);
         }
     }
-    return(
+    return (
         <>
-        <PageHeader logout={logout}/>
-                <AddPokeForm addPoke={addPoke} />
+            <PageHeader logout={logout} />
+            <AddPokeForm addPoke={addPoke} />
         </>
 
     )
